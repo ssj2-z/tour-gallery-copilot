@@ -54,23 +54,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-  .gallery {
-    display: grid;
-    gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    padding: 1rem;
+.gallery {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 1rem;
 }
+
 .tour-card {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
@@ -115,8 +105,13 @@ button:focus-visible {
   font-size: 1em;
   transition: background-color 0.3s ease;
 }
-
 .tour-card button:hover {
   background-color: #d62828;
 }
+
+/* Add Media Query Here */
+@media (max-width: 768px) {
+  .gallery {
+      grid-template-columns: 1fr; /* Ensure single column for smaller screens */
+  }
 }

@@ -1,31 +1,26 @@
 import React from 'react';
-import TourCard from './TourCard';
+import TourCard from './TourCard'; // Import the TourCard component
 
 function Gallery({ tours, setTours }) {
+    // Function to remove a tour by its ID
     const removeTour = (id) => {
         setTours(tours.filter((tour) => tour.id !== id));
     };
 
+    // Map over tours and render a TourCard for each tour
     return (
         <div className="gallery">
-            {tours.length === 0 ? (
-                <div className="empty-message">
-                    <h2>No tours left!</h2>
-                    <button onClick={() => window.location.reload()}>Refresh</button>
-                </div>
-            ) : (
-                tours.map(({ id, name, info, image, price }) => (
-                    <TourCard
-                        key={id}
-                        id={id}
-                        name={name}
-                        info={info}
-                        image={image}
-                        price={price}
-                        removeTour={removeTour}
-                    />
-                ))
-            )}
+            {tours.map(({ id, name, info, image, price }) => (
+                <TourCard
+                    key={id}
+                    id={id}
+                    name={name}
+                    info={info}
+                    image={image}
+                    price={price}
+                    removeTour={removeTour}
+                />
+            ))}
         </div>
     );
 }
